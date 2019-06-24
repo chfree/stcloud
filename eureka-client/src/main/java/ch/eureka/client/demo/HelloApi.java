@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @Slf4j
 public class HelloApi {
@@ -16,6 +18,12 @@ public class HelloApi {
 
     @RequestMapping(value="hello",method = {RequestMethod.GET})
     public String index(){
+        discoveryClient.getServices().forEach(serviceId->{
+            List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
+            instances.forEach(instance->{
+                System.out.println(instance.getUri());
+            });
+        });
         log.info("请求到达hello-index");
         return "Hello World";
     }
