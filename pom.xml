@@ -14,6 +14,7 @@
         <module>ribbon-consumer</module>
         <module>feign-consumer</module>
         <module>api-gateway</module>
+        <module>hystrix-ribbon</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
