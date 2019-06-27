@@ -19,6 +19,7 @@ public class HelloApi {
     @RequestMapping(value="hello",method = {RequestMethod.GET})
     public String index(){
         discoveryClient.getServices().forEach(serviceId->{
+            System.out.println("serviceId:" + serviceId);
             List<ServiceInstance> instances = discoveryClient.getInstances(serviceId);
             instances.forEach(instance->{
                 System.out.println(instance.getUri());
