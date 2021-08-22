@@ -5,10 +5,12 @@ import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Random;
 
@@ -33,4 +35,16 @@ public class HelloApi {
         log.info("请求到达hello-index");
         return "Hello World";
     }
+
+    @PostMapping("postHello")
+    public String postIndex(String name){
+        return name+";hehe";
+    }
+
+    @PostMapping("postHello1")
+    public String postIndex1(@Valid TestModel testModel){
+        return "hehe";
+    }
 }
+
+
