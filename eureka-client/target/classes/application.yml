@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: hello-server
-server:
-  port: 3000
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:1111/eureka/
