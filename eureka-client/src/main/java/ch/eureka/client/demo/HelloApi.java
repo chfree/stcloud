@@ -20,7 +20,7 @@ public class HelloApi {
 
     @RequestMapping(value="hello",method = {RequestMethod.GET})
     public String index() throws InterruptedException {
-        int sleepTime = RandomUtils.nextInt(3000);
+        int sleepTime = RandomUtils.nextInt(100);
         log.info("sleepTime:"+sleepTime);
         Thread.sleep(sleepTime);
         discoveryClient.getServices().forEach(serviceId->{

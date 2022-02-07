@@ -1,6 +1,6 @@
 package ch.hystrix.ribbon.demo;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+//import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ public class HelloService {
     @Autowired
     RestTemplate restTemplate;
 
-    @HystrixCommand(fallbackMethod = "helloFallback",commandKey = "helloKey")
+//    @HystrixCommand(fallbackMethod = "helloFallback",commandKey = "helloKey")
     public String helloConsumer(){
         long startTime = System.currentTimeMillis();
         String httpUrl="http://HELLO-SERVER/hello";
